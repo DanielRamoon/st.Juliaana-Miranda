@@ -1,0 +1,55 @@
+.button {
+  --offset: clamp(1rem, 3vw, 1.75rem);
+
+  position: fixed;
+  right: calc(var(--offset) + 7px);
+  bottom: calc(var(--offset) + 58px + 0.9rem);
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgb(104 162 136 / 0.35);
+  border-radius: 50%;
+  background-color: var(--color-white);
+  color: var(--color-teal);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity 250ms ease,
+    transform 250ms ease,
+    visibility 250ms ease,
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.button svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.75;
+  transition: transform var(--transition);
+}
+
+.button:hover svg {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 479px) {
+  .button {
+    right: calc(var(--offset) + 4px);
+    bottom: calc(var(--offset) + 52px + 0.75rem);
+  }
+}

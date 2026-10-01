@@ -1,0 +1,23 @@
+.section {
+  padding-block: var(--section-spacing);
+  background-color: var(--color-primary-lighter);
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 560px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}

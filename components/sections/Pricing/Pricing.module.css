@@ -1,0 +1,245 @@
+.section {
+  padding-block: var(--section-spacing);
+  overflow: hidden;
+  background:
+    linear-gradient(rgb(229 207 188 / 0.82), rgb(214 184 160 / 0.82)),
+    url("/assets/img/madeira.jpg") center / cover;
+}
+
+.inner {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.heading p {
+  color: var(--color-text-strong);
+}
+
+.heading h2 {
+  color: var(--color-brown-darker);
+}
+
+.included {
+  padding: 1.75rem;
+  border-radius: var(--radius-md);
+  background-color: rgb(255 255 255 / 0.92);
+  box-shadow: var(--shadow-md);
+}
+
+.includedTitle {
+  margin-bottom: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-teal-dark);
+}
+
+.includedList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.includedList li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.8125rem;
+}
+
+.includedList svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  stroke-width: 2.5;
+  color: var(--color-teal);
+}
+
+.includedList strong {
+  color: var(--color-text-strong);
+}
+
+/* Card de preço */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2rem 2rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  transform: translateY(-50%);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background-color: #8a9a6c;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.course {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-text-strong);
+}
+
+.highlight {
+  margin-top: 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.15;
+  color: var(--color-teal-dark);
+}
+
+.note {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.cta {
+  margin-top: 1.75rem;
+}
+
+.guarantees {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.guarantees li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.guarantees svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 1.5;
+  color: var(--color-teal);
+}
+
+/* Imagem com bônus */
+.visual {
+  position: relative;
+  min-height: 320px;
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.image {
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.brand {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  width: 60%;
+  max-width: 200px;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background-color: rgb(255 255 255 / 0.7);
+  transform: translateX(-50%);
+}
+
+.brand img {
+  width: 100%;
+  height: auto;
+}
+
+.bonus {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  border: 3px solid rgb(255 255 255 / 0.6);
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.1;
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.bonus svg {
+  width: 26px;
+  height: 26px;
+  margin-bottom: 0.3rem;
+  stroke-width: 1.5;
+}
+
+.bonus small {
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 767px) {
+  .intro {
+    display: contents;
+  }
+
+  .heading {
+    order: -2;
+  }
+
+  .visual {
+    order: -1;
+  }
+}
+
+@media (min-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .visual {
+    grid-column: 1 / -1;
+    min-height: 360px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .inner {
+    grid-template-columns: 1fr 1fr 0.9fr;
+    gap: 2.5rem;
+  }
+
+  .visual {
+    grid-column: auto;
+    min-height: 420px;
+    margin-block: calc(var(--section-spacing) * -1);
+    margin-right: calc(var(--bleed) * -1);
+    border-radius: 55% 0 0 55% / 50% 0 0 50%;
+    overflow: hidden;
+  }
+
+  .bonus {
+    left: -1rem;
+    bottom: 22%;
+  }
+}

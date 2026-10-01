@@ -1,0 +1,129 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-height);
+  background-color: rgb(245 244 242 / 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgb(213 211 207 / 0.5);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.logo {
+  width: 170px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.link {
+  display: block;
+  padding: 0.85rem 0;
+  font-size: 1rem;
+  color: var(--color-text-strong);
+  transition: color var(--transition);
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-teal);
+}
+
+.desktopCta {
+  display: none;
+}
+
+/* Menu mobile */
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem var(--container-padding) 2rem;
+  background-color: var(--color-bg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity var(--transition),
+    transform var(--transition),
+    visibility var(--transition);
+}
+
+.nav.open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.nav .links li + li {
+  border-top: 1px solid var(--color-border);
+}
+
+.mobileCta {
+  align-self: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    width: 190px;
+  }
+
+  .nav {
+    position: static;
+    height: auto;
+    overflow: visible;
+    flex-direction: row;
+    padding: 0;
+    background: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .links {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .nav .links li + li {
+    border-top: none;
+  }
+
+  .link {
+    padding: 0.5rem 0;
+    font-size: 0.8125rem;
+    color: var(--color-text);
+  }
+
+  .mobileCta,
+  .toggle {
+    display: none;
+  }
+
+  .desktopCta {
+    display: inline-flex;
+  }
+}

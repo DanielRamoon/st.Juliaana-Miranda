@@ -1,0 +1,13 @@
+.logo {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.light .image {
+  filter: brightness(0) invert(0.93) sepia(0.15);
+}

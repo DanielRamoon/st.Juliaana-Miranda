@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-primary-lighter);
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border: 3px solid var(--color-white);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.quote {
+  flex: 1;
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-strong);
+}
+
+.stars {
+  display: flex;
+  gap: 0.2rem;
+  color: #e9b23c;
+}
+
+.stars svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}

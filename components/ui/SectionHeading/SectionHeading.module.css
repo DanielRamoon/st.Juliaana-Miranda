@@ -1,0 +1,45 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.title {
+  font-size: clamp(1.75rem, 3.2vw, 2.375rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-teal);
+}
+
+.description {
+  max-width: 34rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.divider {
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  background-color: var(--color-primary);
+}
