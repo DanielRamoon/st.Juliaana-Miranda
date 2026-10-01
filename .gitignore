@@ -36,6 +36,21 @@ yarn-error.log*
 # vercel
 .vercel
 
+# ai assistants
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.cursor/
+.cursorrules
+.cursorignore
+.claude/
+.windsurf/
+.windsurfrules
+.github/copilot-instructions.md
+.aider*
+.codex/
+.gemini/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
