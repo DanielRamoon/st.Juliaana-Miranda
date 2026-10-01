@@ -102,7 +102,6 @@
   position: relative;
   width: min(62%, 330px);
   height: auto;
-  filter: drop-shadow(0 20px 30px rgb(40 40 39 / 0.12));
 }
 
 .script {
@@ -146,8 +145,10 @@
     right: calc(var(--bleed) * -1);
   }
 
+  /* No iPhone, filter em elemento abaixo da dobra gera um quadrado preto (WebKit #314999) */
   .photo {
     margin-left: 4%;
+    filter: drop-shadow(0 20px 30px rgb(40 40 39 / 0.12));
   }
 
   .script {
