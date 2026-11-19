@@ -7,8 +7,8 @@ import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import styles from "./Pricing.module.css";
 
-export function Pricing() {
-  const { CTA_HREF, pricing } = getLanding();
+export async function Pricing() {
+  const { CTA_HREF, pricing } = await getLanding();
 
   return (
     <section id="investimento" className={styles.section}>

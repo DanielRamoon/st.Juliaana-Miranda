@@ -35,8 +35,8 @@ function mapIcons<T extends { icon: string }>(items: T[]) {
   return items.map((item) => ({ ...item, icon: getIcon(item.icon) }));
 }
 
-export function getLanding() {
-  const site = getSiteContent();
+export async function getLanding() {
+  const site = await getSiteContent();
   const links = getDerivedLinks(site);
 
   return {
@@ -96,7 +96,7 @@ export function getLanding() {
   };
 }
 
-export type Landing = ReturnType<typeof getLanding>;
+export type Landing = Awaited<ReturnType<typeof getLanding>>;
 
 export function getCustomSection(site: SiteContent, id: string) {
   return site.customSections.find((section) => section.id === id);

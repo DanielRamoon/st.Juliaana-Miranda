@@ -5,8 +5,8 @@ import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import styles from "./AudienceBenefits.module.css";
 
-export function AudienceBenefits() {
-  const { site, audience, benefits } = getLanding();
+export async function AudienceBenefits() {
+  const { site, audience, benefits } = await getLanding();
   const data = site.audience;
 
   return (

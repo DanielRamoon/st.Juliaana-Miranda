@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/Button/Button";
 import { getLanding, type Course } from "@/data/landing";
 import styles from "./CourseCard.module.css";
 
-export function CourseCard({
+export async function CourseCard({
   badge,
   title,
   description,
@@ -11,7 +11,7 @@ export function CourseCard({
   includes,
   featured = false,
 }: Course) {
-  const { WHATSAPP_HREF } = getLanding();
+  const { WHATSAPP_HREF } = await getLanding();
 
   return (
     <article className={`${styles.card} ${featured ? styles.featured : ""}`}>

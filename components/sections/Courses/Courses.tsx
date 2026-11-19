@@ -5,8 +5,8 @@ import { reveal } from "@/lib/reveal";
 import { CourseCard } from "./CourseCard";
 import styles from "./Courses.module.css";
 
-export function Courses() {
-  const { site, courses, coursesIncluded } = getLanding();
+export async function Courses() {
+  const { site, courses, coursesIncluded } = await getLanding();
   const data = site.courses;
 
   return (

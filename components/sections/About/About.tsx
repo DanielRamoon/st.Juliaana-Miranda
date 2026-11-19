@@ -5,8 +5,8 @@ import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import styles from "./About.module.css";
 
-export function About() {
-  const { site, teacher } = getLanding();
+export async function About() {
+  const { site, teacher } = await getLanding();
   const about = site.about;
 
   return (

@@ -5,8 +5,8 @@ import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import styles from "./Faq.module.css";
 
-export function Faq() {
-  const { site, faqs } = getLanding();
+export async function Faq() {
+  const { site, faqs } = await getLanding();
   const data = site.faq;
 
   return (

@@ -5,7 +5,7 @@ import type { SiteContent } from "@/lib/content/types";
 export const runtime = "nodejs";
 
 export async function GET() {
-  return NextResponse.json(getSiteContent());
+  return NextResponse.json(await getSiteContent());
 }
 
 export async function PUT(request: Request) {
@@ -14,7 +14,7 @@ export async function PUT(request: Request) {
     if (!body?.meta?.title || !body?.hero || !Array.isArray(body.sectionsOrder)) {
       return NextResponse.json({ error: "Conteúdo inválido" }, { status: 400 });
     }
-    saveSiteContent(body);
+    await saveSiteContent(body);
     return NextResponse.json({ ok: true });
   } catch (error) {
     const message =

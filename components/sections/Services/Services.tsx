@@ -7,8 +7,8 @@ import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import styles from "./Services.module.css";
 
-export function Services() {
-  const { site, services, contact, WHATSAPP_HREF } = getLanding();
+export async function Services() {
+  const { site, services, contact, WHATSAPP_HREF } = await getLanding();
   const data = site.services;
 
   return (

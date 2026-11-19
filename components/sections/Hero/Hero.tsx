@@ -5,8 +5,8 @@ import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import styles from "./Hero.module.css";
 
-export function Hero() {
-  const { site, CTA_HREF, heroHighlights } = getLanding();
+export async function Hero() {
+  const { site, CTA_HREF, heroHighlights } = await getLanding();
   const hero = site.hero;
 
   return (

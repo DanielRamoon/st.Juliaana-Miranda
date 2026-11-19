@@ -28,8 +28,8 @@ const BUILTIN = {
   faq: Faq,
 } as const;
 
-export default function Home() {
-  const landing = getLanding();
+export default async function Home() {
+  const landing = await getLanding();
   const { site, CTA_HREF, navLinks, isSectionVisible, sectionsOrder } = landing;
 
   return (

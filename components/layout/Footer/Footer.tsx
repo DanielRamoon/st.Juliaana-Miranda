@@ -6,8 +6,8 @@ import { SocialIcons } from "@/components/ui/SocialIcons/SocialIcons";
 import { getLanding } from "@/data/landing";
 import styles from "./Footer.module.css";
 
-export function Footer() {
-  const { contact, WHATSAPP_HREF, footer } = getLanding();
+export async function Footer() {
+  const { contact, WHATSAPP_HREF, footer } = await getLanding();
   const year = new Date().getFullYear();
 
   const contactLinks = [

@@ -23,9 +23,9 @@ const caveat = Caveat({
   weight: ["400", "600"],
 });
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata(): Promise<Metadata> {
   try {
-    const site = getSiteContent();
+    const site = await getSiteContent();
     return {
       title: site.meta.title,
       description: site.meta.description,

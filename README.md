@@ -33,9 +33,15 @@ No admin você pode:
 
 O conteúdo editável fica em `content/site.json`. As imagens enviadas vão para `public/uploads/`.
 
-### Importante sobre a Vercel
+### Produção na Vercel (obrigatório para o admin funcionar)
 
-Na Vercel o disco do servidor é temporário: alterações salvas pelo admin **podem se perder** após um novo deploy. Para produção na Vercel, o fluxo mais seguro hoje é editar localmente (ou em um ambiente com disco persistente) e fazer commit/push de `content/site.json` e das imagens em `public/uploads/`.
+Na Vercel o disco é somente leitura. Para ordenar, editar e enviar imagens em produção:
+
+1. No projeto da Vercel: **Storage → Create / Connect Blob**
+2. Conecte o Blob ao projeto (isso cria `BLOB_READ_WRITE_TOKEN`)
+3. Faça um novo deploy
+
+Com o token, o conteúdo e os uploads passam a ser salvos no **Vercel Blob** e persistem entre deploys.
 
 ## Estrutura
 

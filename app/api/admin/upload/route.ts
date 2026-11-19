@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { put } from "@vercel/blob";
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
@@ -43,11 +44,30 @@ export async function POST(request: Request) {
           ? "gif"
           : "jpg";
 
-  const dir = path.join(process.cwd(), "public", "uploads");
-  mkdirSync(dir, { recursive: true });
-
   const filename = `${Date.now()}-${randomUUID().slice(0, 8)}.${ext}`;
   const buffer = Buffer.from(await file.arrayBuffer());
+
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const blob = await put(`uploads/${filename}`, buffer, {
+      access: "public",
+      contentType: file.type,
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    });
+    return NextResponse.json({ url: blob.url });
+  }
+
+  if (process.env.VERCEL) {
+    return NextResponse.json(
+      {
+        error:
+          "Em produção configure BLOB_READ_WRITE_TOKEN (Vercel Blob) para enviar imagens.",
+      },
+      { status: 500 },
+    );
+  }
+
+  const dir = path.join(process.cwd(), "public", "uploads");
+  mkdirSync(dir, { recursive: true });
   writeFileSync(path.join(dir, filename), buffer);
 
   return NextResponse.json({ url: `/uploads/${filename}` });

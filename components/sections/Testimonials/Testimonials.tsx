@@ -7,8 +7,8 @@ import { reveal } from "@/lib/reveal";
 import { TestimonialCard } from "./TestimonialCard";
 import styles from "./Testimonials.module.css";
 
-export function Testimonials() {
-  const { site, testimonials } = getLanding();
+export async function Testimonials() {
+  const { site, testimonials } = await getLanding();
   const data = site.testimonials;
 
   return (
