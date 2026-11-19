@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button/Button";
-import { WHATSAPP_HREF, type Course } from "@/data/landing";
+import { getLanding, type Course } from "@/data/landing";
 import styles from "./CourseCard.module.css";
 
 export function CourseCard({
@@ -11,6 +11,8 @@ export function CourseCard({
   includes,
   featured = false,
 }: Course) {
+  const { WHATSAPP_HREF } = getLanding();
+
   return (
     <article className={`${styles.card} ${featured ? styles.featured : ""}`}>
       <span className={styles.badge}>{badge}</span>

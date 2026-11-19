@@ -1,0 +1,270 @@
+.shell {
+  min-height: 100dvh;
+  background:
+    linear-gradient(180deg, #f7f5f1 0%, #eef2ef 100%);
+  color: var(--color-text-strong);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 3vw, 2rem);
+  background: rgb(255 255 255 / 0.9);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+}
+
+.topActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.main {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin-bottom: 0.35rem;
+}
+
+.subtitle {
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.button,
+.ghost,
+.danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 42px;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.button {
+  background: var(--color-primary);
+  color: white;
+}
+
+.button:hover {
+  background: var(--color-primary-hover);
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-strong);
+}
+
+.danger {
+  background: #f8e8e6;
+  color: #8a2f2a;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.field label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  background: #fff;
+  font: inherit;
+  color: inherit;
+}
+
+.textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.loginWrap {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(circle at 50% 20%, #e8f0eb, #f5f4f2 55%);
+}
+
+.loginCard {
+  width: min(420px, 100%);
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.loginCard h1 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.loginCard p {
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  color: #8a2f2a;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.success {
+  color: #2f6b4f;
+  font-size: 0.875rem;
+}
+
+.sectionList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sectionItem {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: white;
+}
+
+.sectionMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  background: var(--color-primary-light);
+  color: var(--color-teal-dark);
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.imagePreview {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #f3f3f3;
+}
+
+.imagePreviewWide {
+  aspect-ratio: 3 / 2;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.tab {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: white;
+  font-size: 0.8125rem;
+}
+
+.tabActive {
+  background: var(--color-teal-dark);
+  color: white;
+  border-color: var(--color-teal-dark);
+}
+
+.listEditor {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.listItem {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.85rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 800px) {
+  .twoCol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}

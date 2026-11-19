@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Caveat, Lora, Montserrat } from "next/font/google";
-import { Intro } from "@/components/layout/Intro/Intro";
 import { INTRO_STORAGE_KEY } from "@/components/layout/Intro/constants";
-import { ScrollReveal } from "@/components/layout/ScrollReveal/ScrollReveal";
+import { getSiteContent } from "@/lib/content/store";
 import "./globals.css";
 
 const lora = Lora({
@@ -24,13 +23,27 @@ const caveat = Caveat({
   weight: ["400", "600"],
 });
 
-export const metadata: Metadata = {
-  title: "Juliana Miranda",
-  description:
-    "Nail designer, educadora e fundadora. Cursos de alongamento de unhas e atendimentos em Juazeiro - BA.",
-};
+export function generateMetadata(): Metadata {
+  try {
+    const site = getSiteContent();
+    return {
+      title: site.meta.title,
+      description: site.meta.description,
+    };
+  } catch {
+    return {
+      title: "Juliana Miranda",
+      description:
+        "Nail designer, educadora e fundadora. Cursos de alongamento de unhas e atendimentos em Juazeiro - BA.",
+    };
+  }
+}
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="pt-BR"
@@ -44,11 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
       </head>
-      <body>
-        <Intro />
-        <ScrollReveal />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

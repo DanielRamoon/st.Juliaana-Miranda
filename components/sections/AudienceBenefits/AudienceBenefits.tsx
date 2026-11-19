@@ -1,25 +1,19 @@
 import { Check } from "lucide-react";
 import { Container } from "@/components/ui/Container/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading/SectionHeading";
-import { audience, benefits } from "@/data/landing";
+import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import styles from "./AudienceBenefits.module.css";
 
 export function AudienceBenefits() {
+  const { site, audience, benefits } = getLanding();
+  const data = site.audience;
+
   return (
     <section id="beneficios" className={styles.section}>
       <Container className={styles.inner}>
         <div className={styles.column}>
-          <SectionHeading
-            eyebrow="Para quem é o curso?"
-            title={
-              <>
-                Seja qual for o seu momento,
-                <br />
-                esse curso é para você!
-              </>
-            }
-          />
+          <SectionHeading eyebrow={data.eyebrow} title={data.title} />
           <ul className={styles.list}>
             {audience.map((item, index) => (
               <li key={item} className={styles.item} {...reveal("left", index)}>
@@ -34,14 +28,8 @@ export function AudienceBenefits() {
 
         <div className={styles.column}>
           <SectionHeading
-            eyebrow="Benefícios"
-            title={
-              <>
-                Mais que um curso,
-                <br />
-                uma oportunidade real.
-              </>
-            }
+            eyebrow={data.benefitsEyebrow}
+            title={data.benefitsTitle}
           />
           <ul className={styles.list}>
             {benefits.map(({ icon: Icon, label }, index) => (

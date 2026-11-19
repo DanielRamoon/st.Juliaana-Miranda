@@ -5,10 +5,20 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button/Button";
 import { Container } from "@/components/ui/Container/Container";
 import { Logo } from "@/components/ui/Logo/Logo";
-import { CTA_HREF, navLinks } from "@/data/landing";
+import type { NavLink } from "@/data/landing";
 import styles from "./Header.module.css";
 
-export function Header() {
+type HeaderProps = {
+  navLinks: NavLink[];
+  ctaHref: string;
+  ctaLabel?: string;
+};
+
+export function Header({
+  navLinks,
+  ctaHref,
+  ctaLabel = "Quero me inscrever",
+}: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -39,13 +49,13 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <Button href={CTA_HREF} size="sm" className={styles.mobileCta}>
-            Quero me inscrever
+          <Button href={ctaHref} size="sm" className={styles.mobileCta}>
+            {ctaLabel}
           </Button>
         </nav>
 
-        <Button href={CTA_HREF} size="sm" className={styles.desktopCta}>
-          Quero me inscrever
+        <Button href={ctaHref} size="sm" className={styles.desktopCta}>
+          {ctaLabel}
         </Button>
 
         <button

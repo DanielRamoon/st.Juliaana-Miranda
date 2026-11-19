@@ -1,0 +1,39 @@
+.section {
+  padding-block: var(--section-spacing);
+  background-color: var(--color-bg-light);
+}
+
+.inner {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.visual {
+  position: relative;
+  min-height: 260px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+  }
+
+  .visual {
+    min-height: 380px;
+  }
+}

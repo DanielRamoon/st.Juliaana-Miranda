@@ -1,25 +1,18 @@
 import { Container } from "@/components/ui/Container/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading/SectionHeading";
-import { courses, coursesIncluded } from "@/data/landing";
+import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import { CourseCard } from "./CourseCard";
 import styles from "./Courses.module.css";
 
 export function Courses() {
+  const { site, courses, coursesIncluded } = getLanding();
+  const data = site.courses;
+
   return (
     <section id="cursos" className={styles.section}>
       <Container>
-        <SectionHeading
-          eyebrow="Formação profissional"
-          title={
-            <>
-              Cursos que formam nail designers
-              <br />
-              seguras e diferenciadas
-            </>
-          }
-          description="Na formação de profissionais, ofereço cursos pensados para desenvolver técnica, visão e posicionamento, formando nail designers seguras, preparadas e diferenciadas no mercado."
-        />
+        <SectionHeading eyebrow={data.eyebrow} title={data.title} />
 
         <ul className={styles.grid}>
           {courses.map((course, index) => (
@@ -31,7 +24,7 @@ export function Courses() {
 
         <div className={styles.included} {...reveal("zoom")}>
           <div className={styles.includedText}>
-            <h3 className={styles.includedTitle}>Todos os cursos incluem</h3>
+            <h3 className={styles.includedTitle}>{data.includedTitle}</h3>
             <p>
               O <strong>laboratório</strong> é um momento exclusivo onde a aluna
               vivencia um dia real de atendimento ao meu lado, observando de

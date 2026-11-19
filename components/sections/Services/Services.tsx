@@ -3,39 +3,40 @@ import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button/Button";
 import { Container } from "@/components/ui/Container/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading/SectionHeading";
-import { contact, services, WHATSAPP_HREF } from "@/data/landing";
+import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import styles from "./Services.module.css";
 
 export function Services() {
+  const { site, services, contact, WHATSAPP_HREF } = getLanding();
+  const data = site.services;
+
   return (
     <section id="atendimentos" className={styles.section}>
       <Container className={styles.inner}>
         <div className={styles.visual} {...reveal("left")}>
           <Image
-            src="/assets/img/atendimento-spa-pes.jpg"
+            src={data.image}
             alt="Atendimento de spa dos pés no estúdio"
             fill
             sizes="(min-width: 1024px) 460px, 90vw"
             className={styles.image}
           />
           <p className={styles.script} {...reveal("fade", 4)}>
-            Acolhimento,
-            <br />
-            paz e valor.
+            {data.script.split("\n").map((line, index, lines) => (
+              <span key={line}>
+                {line}
+                {index < lines.length - 1 ? <br /> : null}
+              </span>
+            ))}
           </p>
         </div>
 
         <div className={styles.content}>
           <SectionHeading
-            eyebrow="Atendimentos"
-            title={
-              <>
-                Estética, naturalidade
-                <br />e durabilidade
-              </>
-            }
-            description="Nos atendimentos, oferecemos serviços pensados para unir estética, naturalidade e durabilidade."
+            eyebrow={data.eyebrow}
+            title={data.title}
+            description={data.description}
           />
 
           <ul className={styles.list}>
@@ -53,9 +54,7 @@ export function Services() {
           </ul>
 
           <p className={styles.note} {...reveal("up")}>
-            Cada procedimento é realizado com atenção aos detalhes, priorizando
-            saúde, resistência e um acabamento sofisticado, respeitando a
-            essência de cada cliente.
+            {data.note}
           </p>
 
           <a
@@ -73,7 +72,7 @@ export function Services() {
           </a>
 
           <div {...reveal("up", 2)}>
-            <Button href={WHATSAPP_HREF}>Agendar meu horário</Button>
+            <Button href={WHATSAPP_HREF}>{data.ctaLabel}</Button>
           </div>
         </div>
       </Container>

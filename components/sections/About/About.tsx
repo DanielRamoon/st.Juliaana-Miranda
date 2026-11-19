@@ -1,19 +1,22 @@
 import Image from "next/image";
 import { Heart, Users } from "lucide-react";
 import { Container } from "@/components/ui/Container/Container";
-import { teacher } from "@/data/landing";
+import { getLanding } from "@/data/landing";
 import { reveal } from "@/lib/reveal";
 import styles from "./About.module.css";
 
 export function About() {
+  const { site, teacher } = getLanding();
+  const about = site.about;
+
   return (
     <section id="profissional" className={styles.section}>
       <Container>
         <div className={styles.top}>
           <div className={styles.photo} {...reveal("left")}>
             <Image
-              src="/assets/img/img.jm2.png"
-              alt="Juliana Miranda sentada, de blusa branca e calça verde"
+              src={about.photo}
+              alt={`${teacher.name} sentada, de blusa branca e calça verde`}
               fill
               sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 90vw"
               className={styles.image}
@@ -21,7 +24,7 @@ export function About() {
           </div>
 
           <div className={styles.content} {...reveal("up", 1)}>
-            <span className={styles.eyebrow}>Sobre a profissional</span>
+            <span className={styles.eyebrow}>{about.eyebrow}</span>
             <h2 className={styles.name}>{teacher.name}</h2>
             <p className={styles.role}>{teacher.role}</p>
             {teacher.intro.map((paragraph) => (
@@ -47,7 +50,7 @@ export function About() {
             <div className={styles.stat}>
               <Users className={styles.statIcon} aria-hidden />
               <p>
-                <strong>+ de 2.000</strong>
+                <strong>{teacher.studentsLabel}</strong>
                 <span>alunas formadas</span>
               </p>
             </div>

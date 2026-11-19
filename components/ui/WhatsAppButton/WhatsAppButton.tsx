@@ -1,10 +1,13 @@
-import { WHATSAPP_HREF } from "@/data/landing";
 import styles from "./WhatsAppButton.module.css";
 
-export function WhatsAppButton() {
+type WhatsAppButtonProps = {
+  href: string;
+};
+
+export function WhatsAppButton({ href }: WhatsAppButtonProps) {
   return (
     <a
-      href={WHATSAPP_HREF}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.button}
