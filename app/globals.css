@@ -86,7 +86,7 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background-color: transparent;
   min-height: 100vh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -94,6 +94,11 @@ body {
   text-rendering: optimizeLegibility;
   isolation: isolate;
   overflow-x: clip;
+}
+
+.site-foreground {
+  position: relative;
+  z-index: 1;
 }
 
 img,

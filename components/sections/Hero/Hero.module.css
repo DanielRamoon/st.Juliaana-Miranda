@@ -1,7 +1,12 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(100deg, var(--color-bg) 0%, #eef0ee 60%);
+  background: linear-gradient(
+    100deg,
+    rgb(245 244 242 / 0.55) 0%,
+    rgb(238 240 238 / 0.35) 60%,
+    transparent 100%
+  );
 }
 
 .inner {

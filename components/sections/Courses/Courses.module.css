@@ -1,6 +1,6 @@
 .section {
   padding-block: var(--section-spacing);
-  background-color: var(--color-white);
+  background-color: rgb(255 255 255 / 0.48);
 }
 
 .grid {

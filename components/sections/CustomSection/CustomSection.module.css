@@ -1,6 +1,6 @@
 .section {
   padding-block: var(--section-spacing);
-  background-color: var(--color-bg-light);
+  background-color: rgb(249 250 249 / 0.48);
 }
 
 .inner {

@@ -1,9 +1,10 @@
 .section {
   padding-block: var(--section-spacing);
   overflow: hidden;
-  background:
-    linear-gradient(rgb(229 207 188 / 0.82), rgb(214 184 160 / 0.82)),
-    url("/assets/img/madeira.jpg") center / cover;
+  background: linear-gradient(
+    rgb(229 207 188 / 0.42),
+    rgb(214 184 160 / 0.35)
+  );
 }
 
 .inner {

@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Header } from "@/components/layout/Header/Header";
+import { SectionAtmosphere } from "@/components/layout/SectionAtmosphere/SectionAtmosphere";
 import { About } from "@/components/sections/About/About";
 import { AudienceBenefits } from "@/components/sections/AudienceBenefits/AudienceBenefits";
 import { Courses } from "@/components/sections/Courses/Courses";
@@ -13,6 +14,7 @@ import { Testimonials } from "@/components/sections/Testimonials/Testimonials";
 import { BackToTop } from "@/components/ui/BackToTop/BackToTop";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton/WhatsAppButton";
 import { getLanding } from "@/data/landing";
+import { buildAtmosphereScenes } from "@/lib/content/atmosphere";
 
 export const dynamic = "force-dynamic";
 
@@ -31,32 +33,38 @@ const BUILTIN = {
 export default async function Home() {
   const landing = await getLanding();
   const { site, CTA_HREF, navLinks, isSectionVisible, sectionsOrder } = landing;
+  const scenes = buildAtmosphereScenes(site);
 
   return (
     <>
-      <Header
-        navLinks={navLinks}
-        ctaHref={CTA_HREF}
-        ctaLabel={site.hero.ctaLabel}
-      />
-      <main>
-        {sectionsOrder.map((id) => {
-          if (!isSectionVisible(id)) return null;
+      <SectionAtmosphere scenes={scenes} />
+      <div className="site-foreground">
+        <Header
+          navLinks={navLinks}
+          ctaHref={CTA_HREF}
+          ctaLabel={site.hero.ctaLabel}
+        />
+        <main>
+          {sectionsOrder.map((id) => {
+            if (!isSectionVisible(id)) return null;
 
-          const Builtin = BUILTIN[id as keyof typeof BUILTIN];
-          if (Builtin) {
-            const Component = Builtin;
-            return <Component key={id} />;
-          }
+            const Builtin = BUILTIN[id as keyof typeof BUILTIN];
+            if (Builtin) {
+              const Component = Builtin;
+              return <Component key={id} />;
+            }
 
-          const custom = site.customSections.find((section) => section.id === id);
-          if (!custom || !custom.enabled) return null;
-          return <CustomSection key={id} section={custom} />;
-        })}
-      </main>
-      <Footer />
-      <BackToTop />
-      <WhatsAppButton href={landing.WHATSAPP_HREF} />
+            const custom = site.customSections.find(
+              (section) => section.id === id,
+            );
+            if (!custom || !custom.enabled) return null;
+            return <CustomSection key={id} section={custom} />;
+          })}
+        </main>
+        <Footer />
+        <BackToTop />
+        <WhatsAppButton href={landing.WHATSAPP_HREF} />
+      </div>
     </>
   );
 }
